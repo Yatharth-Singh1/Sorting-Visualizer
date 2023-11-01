@@ -1,0 +1,80 @@
+/* Resetting default margin and padding */
+body, h1, p, ul, li {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Setting a professional background color and font for the entire page */
+  body {
+    background-color: #f0f0f0;
+    font-family: 'Helvetica', sans-serif;
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  /* Styling the title */
+  h1 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  
+  /* Styling the description paragraphs */
+  p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  /* Styling the subheadings */
+  h2 {
+    font-size: 24px;
+    color: #0077b6;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+  }
+  
+  /* Styling the unordered list */
+  ul {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  /* Styling list items */
+  li {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling the image with the specific src attribute */
+ img{
+  width: 100%; /* Make the image take up the full width of its container */
+  max-width: 600px; /* Set a maximum width for larger screens */
+  height: auto; /* Maintain the aspect ratio */
+  display: block;
+  margin: 20px auto; /* Center the image horizontally with top and bottom margins */
+  border: 2px solid #0077b6; /* Add a border around the image */
+  border-radius: 10px; /* Apply rounded corners to the border */
+}
+
+  
+  /* Styling the use cases section */
+  h2 + p {
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
+  /* Styling the use cases list */
+  h2 + ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    font-size: 18px;
+    color: #444;
+    margin-bottom: 20px;
+  }
+  
