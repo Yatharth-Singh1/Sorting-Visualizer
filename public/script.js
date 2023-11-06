@@ -1,5 +1,13 @@
 const n = 10;
 const array = [];
+const speedSlider = document.getElementById("speedSlider");
+const speedValue = document.getElementById("speedValue");
+
+speedSlider.addEventListener("input", function() {
+        speedValue.textContent = speedSlider.value;
+    });
+    console.log(speedSlider);
+    console.log(speedValue);
 init();
 function init() {
         for (let i = 0; i < n; i++) {
@@ -36,11 +44,13 @@ function animate(moves)
        
        
         showBars(move);
+        const speed = speedSlider.value;
+        for (let x = 0; x < speed; x++){}
         setTimeout(function()
         {
                 animate(moves);
-        },500);
-}
+        },2000/speed);}
+
 function BubbleSort(array)
 {       const moves=[];
 do {
@@ -71,7 +81,7 @@ for (let i = 0; i < array.length; i++){
                 swapped = true;
                 moves.push({indices:[i,lowest],type:"swap"});
                 [array[i], array[lowest]] = [array[lowest], array[i]];
-        
+            
 }
 return moves;
 }
