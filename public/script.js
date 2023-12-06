@@ -34,6 +34,15 @@ function play3()
         const moves=insertionSort(copy);
         animate(moves);
 }
+function play4() {
+        const copy = [...array];
+        const moves = [];
+        mergeSort(copy, 0, copy.length - 1, (partialMoves) => {
+            moves.push(...partialMoves);
+            animate([...moves]); // Pass a copy to avoid modifying the original array
+        });
+    }
+    
 function animate(moves)
 {
         if(moves.length==0)
@@ -57,7 +66,59 @@ function animate(moves)
                 animate(moves);
         },2000/speed);}
 
-
+        function mergeSort(array, start, end, callback) {
+                const moves = [];
+            
+                function merge(array, start, mid, end) {
+                    const leftSize = mid - start + 1;
+                    const rightSize = end - mid;
+            
+                    const leftArray = new Array(leftSize);
+                    const rightArray = new Array(rightSize);
+            
+                    for (let i = 0; i < leftSize; i++) {
+                        leftArray[i] = array[start + i];
+                    }
+                    for (let j = 0; j < rightSize; j++) {
+                        rightArray[j] = array[mid + 1 + j];
+                    }
+            
+                    let i = 0;
+                    let j = 0;
+                    let k = start;
+            
+                    for (k; k <= end; k++) {
+                        moves.push({ indices: [start + i, mid + 1 + j], type: "comp" });
+            
+                        if (i < leftSize && (j >= rightSize || leftArray[i] <= rightArray[j])) {
+                            array[k] = leftArray[i];
+                            i++;
+                        } else {
+                            array[k] = rightArray[j];
+                            j++;
+                        }
+            
+                        moves.push({ indices: [k, k], type: "swap" });
+                    }
+                }
+            
+                function mergeSortHelper(start, end) {
+                    if (start < end) {
+                        const mid = Math.floor((start + end) / 2);
+            
+                        // Recursively sort the two halves
+                        mergeSortHelper(start, mid);
+                        mergeSortHelper(mid + 1, end);
+            
+                        // Merge the sorted halves
+                        merge(array, start, mid, end);
+                    }
+                }
+            
+                mergeSortHelper(start, end);
+                callback([...moves]); // Pass a copy to avoid modifying the original array
+            }
+            
 function insertionSort(array, )  
         {  
             let i, key, j;  
