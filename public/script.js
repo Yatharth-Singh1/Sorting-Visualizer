@@ -28,6 +28,12 @@ function play2()
         const moves=SelectionSort(copy);
         animate(moves);
 }
+function play3()
+{       
+        const copy=[...array];
+        const moves=insertionSort(copy);
+        animate(moves);
+}
 function animate(moves)
 {
         if(moves.length==0)
@@ -51,6 +57,54 @@ function animate(moves)
                 animate(moves);
         },2000/speed);}
 
+
+function insertionSort(array, )  
+        {  
+            let i, key, j;  
+            const moves=[];
+            for (i = 1; i < array.length; i++) 
+            {  
+                key = i;  
+                j = i - 1;  
+           
+                /* Move elements of arr[0..i-1], that are  
+                greater than key, to one position ahead  
+                of their current position */
+                while (j >= 0 ) 
+                {  
+                    moves.push({indices:[key,j],type:"comp"});  
+                    if (array[j]  > array[key])  {
+                    [array[j], array[key]] = [array[key], array[j]];
+                    moves.push({indices:[j,j+1],type:"swap"});
+                    key = j ;    
+                    
+                }  
+                j = j - 1;  
+                
+        }
+                
+            }  
+        return moves;
+        }  
+function SelectionSort(array)
+        {       const moves=[];
+              for (let i = 0; i < array.length; i++){
+                      let lowest = i;
+                      for (let j = i+1; j < array.length; j++) {
+                              moves.push({indices:[lowest,j],type:"comp"});
+                              if (array[lowest] > array[j]) {
+                                      lowest = j;
+                                      
+                              }
+                      }
+                              swapped = true;
+                              moves.push({indices:[i,lowest],type:"swap"});
+                              [array[i], array[lowest]] = [array[lowest], array[i]];
+                          
+              }
+              return moves;
+              }
+              
 function BubbleSort(array)
 {       const moves=[];
 do {
@@ -65,24 +119,6 @@ do {
         }
 }
 while (swapped);
-return moves;
-}
-function SelectionSort(array)
-{       const moves=[];
-for (let i = 0; i < array.length; i++){
-        let lowest = i;
-        for (let j = i+1; j < array.length; j++) {
-                moves.push({indices:[lowest,j],type:"comp"});
-                if (array[lowest] > array[j]) {
-                        lowest = j;
-                        
-                }
-        }
-                swapped = true;
-                moves.push({indices:[i,lowest],type:"swap"});
-                [array[i], array[lowest]] = [array[lowest], array[i]];
-            
-}
 return moves;
 }
 
