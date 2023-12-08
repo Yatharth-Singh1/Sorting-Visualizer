@@ -10,15 +10,11 @@ speedSlider.addEventListener("input", function() {
     console.log(speedValue);
 
 function init() {
-        let n = parseInt(prompt("Enter the size of the array:"));
-    
         for (let i = 0; i < n; i++) {
-            let value = parseFloat(prompt(`Enter value for array[${i}]:`));
-            array.push(value);
+                array[i] = 10*Math.random();
         }
-    
-        showBars();
-    }
+        showBars();}
+        
     function collectArray() {
         let size = parseInt(document.getElementById("arraySize").value);
         let inputDiv = document.getElementById("inputValues");
@@ -43,7 +39,7 @@ function init() {
                 array.push(value);
             }
             showBars();
-            resultDiv.innerHTML = "<h3>Array values: " + array + "</h3>";
+            resultDiv.innerHTML = "<h3>Array values : " + array + "</h3>";
             // You can perform any other operations with the array here
         };
         inputDiv.appendChild(submitButton);
