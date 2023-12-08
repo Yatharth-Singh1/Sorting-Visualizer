@@ -1,5 +1,5 @@
 const n = 10;
-const array = [];
+let array = [];
 const speedSlider = document.getElementById("speedSlider");
 const speedValue = document.getElementById("speedValue");
 
@@ -8,13 +8,47 @@ speedSlider.addEventListener("input", function() {
     });
     console.log(speedSlider);
     console.log(speedValue);
-init();
+
 function init() {
+        let n = parseInt(prompt("Enter the size of the array:"));
+    
         for (let i = 0; i < n; i++) {
-                array[i] = Math.random();
+            let value = parseFloat(prompt(`Enter value for array[${i}]:`));
+            array.push(value);
         }
+    
         showBars();
-}
+    }
+    function collectArray() {
+        let size = parseInt(document.getElementById("arraySize").value);
+        let inputDiv = document.getElementById("inputValues");
+        let resultDiv = document.getElementById("result");
+
+        inputDiv.innerHTML = "<h3>Enter array values:</h3>";
+        inputDiv.style.display = "block";
+
+        for (let i = 0; i < size; i++) {
+            let input = document.createElement("input");
+            input.setAttribute("type", "number");
+            input.setAttribute("id", "value" + i);
+            input.setAttribute("placeholder", "Value for index " + i);
+            inputDiv.appendChild(input);
+        }
+
+        let submitButton = document.createElement("button");
+        submitButton.innerHTML = "Submit";
+        submitButton.onclick = function() {
+            for (let i = 0; i < size; i++) {
+                let value = parseFloat(document.getElementById("value" + i).value);
+                array.push(value);
+            }
+            showBars();
+            resultDiv.innerHTML = "<h3>Array values: " + array + "</h3>";
+            // You can perform any other operations with the array here
+        };
+        inputDiv.appendChild(submitButton);
+       
+    }
 
 function play()
 {       
@@ -188,7 +222,7 @@ function showBars(move)
 for (let i = 0; i < array.length; i++)
 {
         const bar = document.createElement("div");
-        bar.style.height = array[i] * 100 + "%";
+        bar.style.height = array[i] * 10 + "%";
         bar.classList.add("bar");
         if(move && move.indices.includes(i))
         {
