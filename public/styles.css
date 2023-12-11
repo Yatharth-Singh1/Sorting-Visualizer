@@ -1,6 +1,7 @@
 
 body{
-    background-color: rgb(102, 102, 244) !important;
+   
+    background: linear-gradient(180deg, #04fafd, 5%, #119dff, 50%, #030423);
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -40,7 +41,7 @@ body{
     color: white;
   }
 .navbar-brand{
-    background-color: blue; 
+    background-color: rgb(13, 13, 223); 
     border: none;
     color:white;
     padding: 8px 20px;
@@ -71,7 +72,7 @@ nav-link active{
     block-size: 40px;
 }
 #C2{
-    background-color: blue;
+    background-color: rgb(3, 3, 5);
     border: none;
     color: white;
     padding: 8px 20px;
@@ -101,6 +102,7 @@ nav-link active{
     margin-left: 8px;
     block-size: 40px;
 }
+
 .wrapper div {
     height: 60px;
     width: 60px;
